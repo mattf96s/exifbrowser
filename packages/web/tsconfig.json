@@ -1,0 +1,50 @@
+{
+  "include": [
+    "env.d.ts",
+    "sst-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    ".eslintrc.cjs",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    ".cache",
+    "build",
+    "public/build"
+  ],
+  "compilerOptions": {
+    "types": [
+      "@types/wicg-file-system-access"
+    ],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "strict": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./app/*"
+      ]
+    },
+    "skipLibCheck": false,
+    "allowImportingTsExtensions": true,
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
+  }
+}

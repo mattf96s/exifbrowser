@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/node20",
+  "exclude": [
+    "packages",
+    "node_modules",
+    "packages/web"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node"
+  }
+}

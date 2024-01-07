@@ -1,0 +1,37 @@
+{
+  "name": "exifbrowser",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.12.1",
+  "repository": {
+    "url": "https://github.com/mattf96s/exifbrowser"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Matt Fainman"
+  },
+  "description": "A local-first file browser demoing the Origin Private File System and web workers. View EXIF data, edit photos, and more. Alpha version.",
+  "homepage": "https://exifbrowser.com",
+  "scripts": {
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "sso": "aws sso login --sso-session=exifbrowser",
+    "set-node-v": "pnpm env use --global 20"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "aws-cdk-lib": "2.110.1",
+    "constructs": "10.3.0",
+    "sst": "2.39.2",
+    "typescript": "^5.3.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "packages/web/*"
+  ]
+}

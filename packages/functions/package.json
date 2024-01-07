@@ -1,0 +1,15 @@
+{
+  "name": "@exifbrowser/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.131",
+    "@types/node": "^20.10.6",
+    "sst": "2.39.2",
+    "vitest": "^0.34.6"
+  }
+}

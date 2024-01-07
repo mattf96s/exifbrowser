@@ -1,0 +1,14 @@
+node_modules
+dist
+reports
+postcss.config.js
+remix.config.js
+.eslintrc.js
+cdk.*
+**/tsconfig*.json
+.cache
+/build
+/public/build
+/public/workers
+
+package-lock.json

@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/node20",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@exifbrowser/core/*": [
+        "../core/src/*"
+      ]
+    }
+  }
+}
