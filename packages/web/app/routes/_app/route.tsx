@@ -1,13 +1,19 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/node'
-import { Outlet } from '@remix-run/react'
+import { type MetaFunction, Outlet } from '@remix-run/react'
 import { type ReactNode, memo } from 'react'
 import Sidebar from '~/components/sidebar'
 import { SidebarProvider, useSidebar } from '~/components/sidebar/context'
 import { cn } from '~/lib/utils'
 
-export async function loader({ context, params, request }: LoaderFunctionArgs) {
-	return json({})
-}
+export const meta: MetaFunction = () => [
+	{
+		title: 'Exif Browser',
+	},
+	{
+		name: 'description',
+		content:
+			'A file browser exploring the capabilities of the Origin Private File System.',
+	},
+]
 
 export default function Component() {
 	return (

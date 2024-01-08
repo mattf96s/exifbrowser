@@ -7,10 +7,14 @@ export function Web({ stack, app }: StackContext) {
   const site = new RemixSite(stack, "Site", {
     path: "packages/web/",
     runtime: "nodejs20.x",
-    customDomain: {
-      domainName: dns.domain,
-      hostedZone: dns.zone.zoneName,
-    },
+    ...(app.stage === "production"
+      ? {
+          customDomain: {
+            domainName: dns.domain,
+            hostedZone: dns.zone.zoneName,
+          },
+        }
+      : {}),
     environment: {
       NODE_ENV: app.mode === "dev" ? "development" : "production",
       STAGE: app.stage,

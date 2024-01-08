@@ -5,6 +5,8 @@ const PRODUCTION = "exifbrowser.com";
 const DEV = "dev.exifbrowser.com";
 
 export function DNS(ctx: StackContext) {
+  if (ctx.stack.stage !== "production") return;
+
   if (ctx.stack.stage === "production") {
     const zone = new HostedZone(ctx.stack, "zone", {
       zoneName: PRODUCTION,
