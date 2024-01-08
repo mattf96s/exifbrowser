@@ -1,0 +1,99 @@
+diff --git a/.prettierignore b/.prettierignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..72e8ffc0db8aad71a934dd11e5968bd5109e54b4
+--- /dev/null
++++ b/.prettierignore
+@@ -0,0 +1 @@
++*
+diff --git a/constructs/RemixSite.js b/constructs/RemixSite.js
+index 7cb05d8a1c525f3f358e1124da41c1a929672b5b..396dfb3cb14d1d9bc081a745210389fcec0a5fb8 100644
+--- a/constructs/RemixSite.js
++++ b/constructs/RemixSite.js
+@@ -25,6 +25,7 @@ export class RemixSite extends SsrSite {
+         super(scope, id, props);
+     }
+     plan() {
++
+         const { path: sitePath, edge } = this.props;
+         const { handler, inject } = this.createServerLambdaBundle(edge ? "edge-server.js" : "regional-server.js");
+         const format = this.getServerModuleFormat();
+@@ -117,10 +118,10 @@ export class RemixSite extends SsrSite {
+     getServerModuleFormat() {
+         const { path: sitePath } = this.props;
+         // Validate config path
+-        const configPath = path.resolve(sitePath, "remix.config.js");
+-        if (!fs.existsSync(configPath)) {
+-            throw new VisibleError(`In the "${this.node.id}" Site, could not find "remix.config.js" at expected path "${configPath}".`);
+-        }
++        // const configPath = path.resolve(sitePath, "remix.config.js");
++        // if (!fs.existsSync(configPath)) {
++        //     throw new VisibleError(`In the "${this.node.id}" Site, could not find "remix.config.js" at expected path "${configPath}".`);
++        // }
+         // Load config
+         // note: we try to handle Remix v1 and v2
+         //  - In v1, the config is in CJS by default (ie. module.exports = { ... })
+@@ -140,22 +141,22 @@ export class RemixSite extends SsrSite {
+             useWarning().add("remix.cjs");
+         }
+         // Validate config
+-        const configDefaults = {
+-            assetsBuildDirectory: "public/build",
+-            publicPath: "/build/",
+-            serverBuildPath: "build/index.js",
+-            serverPlatform: "node",
+-        };
+-        const config = {
+-            ...configDefaults,
+-            ...userConfig,
+-        };
+-        Object.keys(configDefaults).forEach((key) => {
+-            const k = key;
+-            if (config[k] !== configDefaults[k]) {
+-                throw new VisibleError(`In the "${this.node.id}" Site, remix.config.js "${key}" must be "${configDefaults[k]}".`);
+-            }
+-        });
++        // const configDefaults = {
++        //     assetsBuildDirectory: "public/build",
++        //     publicPath: "/build/",
++        //     serverBuildPath: "build/index.js",
++        //     serverPlatform: "node",
++        // };
++        // const config = {
++        //     ...configDefaults,
++        //     ...userConfig,
++        // };
++        // Object.keys(configDefaults).forEach((key) => {
++        //     const k = key;
++        //     if (config[k] !== configDefaults[k]) {
++        //         throw new VisibleError(`In the "${this.node.id}" Site, remix.config.js "${key}" must be "${configDefaults[k]}".`);
++        //     }
++        // });
+         return format;
+     }
+     createServerLambdaBundle(wrapperFile) {
+diff --git a/support/remix-site-function/edge-server.js b/support/remix-site-function/edge-server.js
+index 7a1476ba27b2392db886c48990ba17f95d60546b..591128effe1abfd7a3c25c31a097743d4243ad76 100644
+--- a/support/remix-site-function/edge-server.js
++++ b/support/remix-site-function/edge-server.js
+@@ -13,7 +13,7 @@ import {
+ import { URL } from "url";
+ 
+ // Import the server build that was produced by `remix build`;
+-import * as remixServerBuild from "./index.js";
++import * as remixServerBuild from "./server/index.js";
+ 
+ /**
+  * Common binary MIME types
+diff --git a/support/remix-site-function/regional-server.js b/support/remix-site-function/regional-server.js
+index 8e543302442e6d95f85fce2e2a2e50a743111582..6959090fd387bc37822e9552e7cf5d7fcab681ba 100644
+--- a/support/remix-site-function/regional-server.js
++++ b/support/remix-site-function/regional-server.js
+@@ -12,7 +12,7 @@ import {
+ } from "@remix-run/node";
+ 
+ // Import the server build that was produced by `remix build`;
+-import * as remixServerBuild from "./index.js";
++import * as remixServerBuild from "./server/index.js";
+ 
+ /**
+  * Common binary MIME types
