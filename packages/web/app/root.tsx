@@ -35,16 +35,12 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = () => {
 	return [
 		{
-			title: 'BioDuck',
+			title: 'ExifBrowser',
 		},
 
 		{
 			name: 'description',
-			content: 'Your local first DuckDB playground',
-		},
-		{
-			name: 'robots',
-			content: 'none', // stop indexing; #TODO: Remove once we're ready to launch
+			content: 'A local-first file browser for your photos',
 		},
 	]
 }
@@ -65,7 +61,8 @@ function GlobalLoader(): null {
 	return null
 }
 
-export async function loader({ context, params, request }: LoaderFunctionArgs) {
+// Remix complaings about needing a root loader (might be a Vite bug).
+export async function loader(_props: LoaderFunctionArgs) {
 	return json({
 		ENV: {},
 	})
@@ -86,11 +83,6 @@ export default function App() {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
-
-				{/* <meta
-					httpEquiv="Accept-CH"
-					content="DPR,Width,Viewport-Width"
-				/> */}
 
 				<Meta />
 				<Links />
