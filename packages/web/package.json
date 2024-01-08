@@ -9,9 +9,10 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
-    "build": "pnpm run clean && remix vite:build && pnpm run worker && pnpm run tsworker",
-    "worker": "esbuild ./workers/*.js --bundle --outdir=./public/workers",
-    "tsworker": "esbuild ./workers/*.ts --bundle --outdir=./public/workers",
+    "build": "NODE_ENV=production pnpm run clean && remix vite:build",
+    "build-local": "pnpm run clean && remix vite:build && pnpm run worker && pnpm run tsworker",
+    "worker": "esbuild './workers/*.js --bundle --outdir=./public/workers'",
+    "tsworker": "esbuild './workers/*.ts --bundle --outdir=./public/workers'",
     "dev": "pnpm run clean && sst bind 'node ./server.mjs'",
     "start": "cross-env NODE_ENV=production node ./server.mjs",
     "clean": "rimraf build",

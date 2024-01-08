@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  sst@2.39.2:
+    hash: nbjouhs4thhxtoafxd4b72l6ru
+    path: patches/sst@2.39.2.patch
+
 importers:
 
   .:
@@ -19,7 +24,7 @@ importers:
         version: 10.3.0
       sst:
         specifier: 2.39.2
-        version: 2.39.2
+        version: 2.39.2(patch_hash=nbjouhs4thhxtoafxd4b72l6ru)
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -35,7 +40,7 @@ importers:
         version: 20.10.6
       sst:
         specifier: 2.39.2
-        version: 2.39.2
+        version: 2.39.2(patch_hash=nbjouhs4thhxtoafxd4b72l6ru)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6
@@ -50,7 +55,7 @@ importers:
         version: 20.10.6
       sst:
         specifier: 2.39.2
-        version: 2.39.2
+        version: 2.39.2(patch_hash=nbjouhs4thhxtoafxd4b72l6ru)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6
@@ -13895,7 +13900,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /sst@2.39.2:
+  /sst@2.39.2(patch_hash=nbjouhs4thhxtoafxd4b72l6ru):
     resolution: {integrity: sha512-lWtdSIoaZLa+pNzuwGmfExj6lvRFv6flT0Zrja+jlZt7eMJ8GPMUqFQoX4simkfNaKCDWSgHrQhexuDvFgEDJQ==}
     hasBin: true
     peerDependencies:
@@ -13985,6 +13990,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+    patched: true
 
   /stack-utils@2.0.6:
     resolution: {integrity: sha512-XlkWvfIm6RmsWtNJx+uqtKLS8eqFbxUg0ZzLXqY0caEy9l7hruX8IpiDnjsLavoBgqCCR71TqWO8MaXYheJ3RQ==}

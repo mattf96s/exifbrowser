@@ -20,6 +20,9 @@ export default {
       runtime: "nodejs20.x",
     });
 
-    app.stack(DNS).stack(Email).stack(Web);
+    // #TODO: add deployment stacks
+
+    //app.stack(DNS).stack(Email).stack(Web);
+    app.stack(Web);
   },
 } satisfies SSTConfig;

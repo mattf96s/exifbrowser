@@ -16,9 +16,10 @@ const ABORT_DELAY = 5_000
 init()
 global.ENV = getEnv()
 
-if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
-	import('./utils/monitoring.server.ts').then(({ init }) => init())
-}
+// #TODO: add Sentry monitoring
+// if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
+// 	import('./utils/monitoring.server.ts').then(({ init }) => init())
+// }
 
 export default function handleRequest(
 	request: Request,
