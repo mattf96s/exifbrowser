@@ -19,8 +19,8 @@
   "display": "standalone",
   "dir": "auto",
   "lang": "en-ZA",
-  "name": "BioDuck",
-  "start_url": "/home",
+  "name": "ExifBrowser",
+  "start_url": "/files",
   "scope": "/",
-  "short_name": "BioDuck"
+  "short_name": "EB"
 }

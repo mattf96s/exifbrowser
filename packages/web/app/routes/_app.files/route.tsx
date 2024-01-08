@@ -119,7 +119,7 @@ function FileTreeDropContainer(props: { children: React.ReactNode }) {
 			onDragOver={handleDragEnter}
 			onDragLeave={handleDragLeave}
 		>
-			<div className={cn('container px-0')}>
+			<div className={cn('container max-w-none px-0')}>
 				<div className={cn('flex-1 overflow-y-auto')}>{props.children}</div>
 			</div>
 		</div>
@@ -131,7 +131,7 @@ function FileTree() {
 		<>
 			{/* #TODO: add functionality to smaller screens */}
 			<header className="sticky top-0 z-50 hidden w-full border-b bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:block">
-				<div className="container flex items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
+				<div className="container flex max-w-none items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
 					<h2 className="text-lg font-semibold">File Explorer</h2>
 					<motion.div className="inline-flex items-center gap-2">
 						<AddFilesButton />
