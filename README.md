@@ -1,8 +1,14 @@
 # exifbrowser.com
 
-A privacy-first file exploring built using the new Origin Private File System (OPFS) and web workers.
+A local-first file explorer making use of the new Origin Private File System (OPFS) and web workers.
+
+Drop a folder of 1000+ images onto the page and it will generate a list of all the images and their EXIF data in a couple of seconds.
+
+Demo coming soon (after work).
+
 This is the base for a custom [iNaturalist](https://www.inaturalist.org/) upload interface.
-Very much a work in progress.
+
+_Very much a work in progress._
 
 ## Tech Stack
 
