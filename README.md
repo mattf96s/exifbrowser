@@ -10,6 +10,8 @@ This is the base for a custom [iNaturalist](https://www.inaturalist.org/) upload
 
 _Very much a work in progress._
 
+https://github.com/mattf96s/exifbrowser/assets/68327846/b9727bc5-1954-434a-89c1-03575cc11eeb
+
 ## Tech Stack
 
 - Remix (React)
@@ -26,7 +28,7 @@ _Very much a work in progress._
 ### Notable design patterns
 
 - @tanstack/virtual (virtualized list)
-- On the fly image compression using a web worker prior to rendering in the browser (single biggest perf gain).
+- On-the-fly image compression using a web worker before rendering in the browser (single biggest perf gain).
 
 ## Development
 
@@ -52,7 +54,7 @@ TODO
 ### Deployment
 
 - Deployment pipeline with SEED
-- Add privacy focused analytics / error tracking (avoid session recordings etc.)
+- Add privacy-focused analytics/error tracking (avoid session recordings etc.)
 
 ### Documentation
 
