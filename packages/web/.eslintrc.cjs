@@ -9,7 +9,11 @@ module.exports = {
         "plugin:react/recommended",
     ],
     settings: {
-        react: { version: "detect" },
+        react: {
+            version: "detect", "import/resolver": {
+                typescript: {},
+            },
+        },
     },
     parserOptions: {
         ecmaVersion: "latest",
